@@ -26,7 +26,7 @@ To give a graphical example of a DOM tree, we'll look at the [tree example from 
 
 The DOM tree representation of the above HTML would look like this:
 
-![DOM tree representation]({{leila-alderman.github.io}}/assets/DOMtable.png)
+![DOM tree representation]({{leila-alderman.github.io}}/_posts/assets/DOMtable.png)
 
 The topmost node in the DOM tree is always the document object. Therefore, **“document”** is the parent node to every other node. Similar to HTML, a **child node** is one that is nested inside its **parent node**. If a parent node has more than one child node, these children are considered **siblings**.
 
@@ -108,7 +108,7 @@ In addition to the childNodes property, all parent nodes also have the **childre
 
 To better understand how the other relational selectors work, the following image from [Eloquent JavaScript](http://eloquentjavascript.net/14_dom.html) shows how the different relational properties can be used to access different nodes:
 
-![DOM relationships]({{leila-alderman.github.io}}/assets/DOMrelations.svg)
+![DOM relationships]({{leila-alderman.github.io}}/_posts/assets/DOMrelations.svg)
 
 
 ## Summary
