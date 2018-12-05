@@ -1,3 +1,3 @@
-# Leila Alderman Github Pages
+# NC Clear Path Github Pages
 
-Hosting for the github pages site for Leila Alderman's blog
+Hosting for the github pages site for NC Clear Path
