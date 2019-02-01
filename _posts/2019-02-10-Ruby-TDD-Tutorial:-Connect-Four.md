@@ -1,4 +1,8 @@
-# Using TDD to Write a Ruby Connect Four Game
+---
+title: Ruby TDD Tutorial | Connect Four Part 1
+---
+
+# Ruby TDD Tutorial | Connect Four Part 1
 
 This tutorial walks through how to write a game of [Connect Four](https://en.wikipedia.org/wiki/Connect_Four) that can be played in the terminal using the principles of [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD). 
 
