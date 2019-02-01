@@ -1,4 +1,9 @@
-# Ruby TDD Tutorial: Tic-Tac-Toe
+---
+layout: post
+title: Ruby TDD Tutorial: Tic-Tac-Toe Part 1
+---
+
+# Ruby TDD Tutorial: Tic-Tac-Toe Part 1
 
 This tutorial walks through how to write a game of [tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) that can be played in the terminal using the principles of [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD), specifically using [RSpec](https://semaphoreci.com/community/tutorials/getting-started-with-rspec). 
 
@@ -52,11 +57,12 @@ The validation error was 'metadata['homepage_uri'] has invalid link: "TODO: Put 
 
 then you need to go into the `tictactoe.gemspec` file and comment out lines 18-28 (everything within the `if spec.respond_to?(:metadata)` statement). In Ruby, you can comment out multiple lines using the following:
 
-```ruby
+~~~ruby
 =begin
 ...
 =end
-```
+~~~
+
 Be aware, however, that these comment flags will only work if they are not preceeded by any spaces or tabs.
 
 Now, try to run `bundle install` again. This time, you should see some output similar to this:
@@ -109,12 +115,12 @@ rspec ./spec/tictactoe_spec.rb:8 # Tictactoe does something useful
 
 Great! We ran our first test! The results show that the "has a version number" test passed but that the "does something useful" test failed. The final line in the output tells us that this failure happened in the `./spec/tictactoe_spec.rb` file on line 8. Let's see what that says:
 
-```ruby
+~~~ruby
 # ./spec/tictactoe_spec.rb
 it "does something useful" do
     expect(false).to eq(true)
   end
-```
+~~~
 
 It should be pretty clear why this test is failing: we're asking whether `false == true`, which is always going to fail. This test is here to just make sure that you're paying attention. Let's delete this test and then run `bundle exec rspec` again. The output should now look nice and green:
 
@@ -126,15 +132,17 @@ Finished in 0.00268 seconds (files took 0.34991 seconds to load)
 1 example, 0 failures
 ~~~
 
-## Square Class: Tests
+## Square Class
 
-The tic-tac-toe board is a 3x3 grid, so the board consists of nine squares. Each square can have a value of " ", "X", or "O". Since this is the most fundamental aspect of the tic-tac-toe game, we'll start here. 
+The tic-tac-toe board is a 3x3 grid, so the board consists of nine squares. Each square can have a value of " ", "X", or "O". Since this is the most fundamental aspect of the tic-tac-toe game, we'll start here.
+
+### Writing the Square Spec
 
 Because we're using TDD to create this project, we'll start by creating the test file for this class before we build the class itself. For every class that we create, we'll first create a new RSpec file in the root of the `spec/` directory. 
 
 Create a new file in `spec/` called `square_spec.rb` where we can add our first tests. First, we need to think about what kind of functionality a Square object should have. A new Square object should have a value of " ", and we should be able to change its value to an "X" or "O". Now, we can write tests that describe this behavior: 
 
-```ruby
+~~~ruby
 # spec/square_spec.rb
 RSpec.describe Tictactoe::Square do
 
@@ -163,7 +171,7 @@ RSpec.describe Tictactoe::Square do
   end
 
 end
-```
+~~~
 
 Now, run the test using `bundle exec rspec` in the command line. You should see that your new tests have failed: 
 
@@ -174,11 +182,11 @@ NameError:
 
 Great, we've finished the first part of TDD! Now, we need to write some code to make these tests pass.
 
-## Square Class
+### Writing the Square Class
 
 Create a new file in `lib/tictactoe/` called `square.rb` and write out the basic functionality for this class that will make it pass the tests we just wrote. Keep in mind that all of our classes will be wrapped inside the Tictactoe module to follow the conventions of Ruby gems. This approach helps to prevent namespace collisions when multiple gems are included in a project. 
 
-```ruby
+~~~ruby
 # lib/tictactoe/square.rb
 module Tictactoe
   class Square
@@ -189,16 +197,17 @@ module Tictactoe
     end
   end
 end
-```
+~~~
 
 Now, run `bundle exec rspec` again. Our tests are still failing! Why is that? 
 
 We need to tell our program where to look for the code it wants. The test files automatically know to look in`lib/tictactoe.rb` for code to test, so we just need to tell `lib/tictactoe.rb` to load `lib/tictactoe/square.rb` by adding a `require` statement to the top of the file:
 
-```ruby
+~~~ruby
 # lib/tictactoe.rb
 require "tictactoe/square"
-```
+~~~
+
 If we run `bundle exec rspec` now, we should see a lot of happy green:
 
 ~~~bash
@@ -217,3 +226,182 @@ Finished in 0.00412 seconds (files took 0.15577 seconds to load)
 ~~~
 
 Excellent! We have successfully created our first class!
+
+## Player Class
+
+The next simplest class that we need to build is one for the players. The Player class needs to be able to keep track of each player's name and their marker.
+
+### Writing the Player Spec
+
+To start writing the tests for the Player class, we need to create a new file in `spec/` called `player_spec.rb`. What functionality do we want to expect from this class?
+
+First, we want a new player object to require both a `name` and a `marker` when initialized. We can write three tests for this requirement: one that checks that an error is raised when a new player is given zero parameters, one that checks that an error is raised when a new player is given one parameter, and one that checks that no error is raised when a player is initialized with two parameters. 
+
+~~~ruby
+# spec/player_spec.rb
+RSpec.describe Tictactoe::Player do
+
+  context "#initialize" do
+    it "raises an error when given zero parameters" do
+      expect { Tictactoe::Player.new }.to raise_error(ArgumentError)
+    end
+
+    it "raises an error when given one parameter" do
+      expect { Tictactoe::Player.new("Alice") }.to raise_error(ArgumentError)
+    end
+
+    it "doesn't raise an error when given two parameters" do
+      expect { Tictactoe::Player.new("Alice", "X") }.to_not raise_error
+    end
+  end
+  
+end
+~~~
+
+Notice how we have written out our [`raise_error`](https://relishapp.com/rspec/rspec-expectations/docs/built-in-matchers/raise-error-matcher) tests. When we're expecting an error, it's best practice to specify the exact error that we are expecting to find. In this case, we're expecting an `ArgumentError` since we're passing in the incorrect number of arguments. Conversely, when we aren't expecting an error to be raised, we don't want to specify a specific error type. These best practices will limit any false positives that could occur when different errors occur, which would potentially allow our code to pass the tests without even running the code we want to test. Furthermore, note that tests that use the `raise_error` matcher require being passed a block of code, unlike the other tests that we've written so far. 
+
+Second, we want to be able to access the `name` and `marker` attributes of a player from outside the object. However, we only want to be able to *read* these attributes; we don't want to be able to change their values.
+
+~~~ruby
+# spec/player_spec.rb
+before do
+  @player = Tictactoe::Player.new("Alice", "X") 
+end
+
+context "#name" do
+  it "returns the name" do
+    expect(@player.name).to eql "Alice"
+  end
+
+  it "raises an error when trying to change the name" do
+    expect { @player = Tictactoe::Player.new("Alice", "X"); 
+    @player.name = "Bob" }.to raise_error(NoMethodError)
+  end
+end
+
+context "#marker" do
+  it "returns the marker" do
+    expect(@player.marker).to eql "X"
+  end
+
+  it "raises an error when trying to change the marker" do
+    expect { @player = Tictactoe::Player.new("Alice", "X"); 
+    @player.marker = "G" }.to raise_error(NoMethodError)    
+  end
+end
+~~~
+
+That covers all of the functionality that we want for our Player class, so it's now time to write the class itself.
+
+### Writing the Player Class
+
+We need to start by creating a new file for our new class. In the `lib/tictactoe` folder, we'll create the file `player.rb`. This time, before we get into writing our new class, we'll go ahead and add the `require` statement for our new file.
+
+~~~ruby
+# lib/tictactoe.rb
+require "tictactoe/player"
+~~~
+
+Now, we can run our tests and get them to pass one at a time. If we run `bundle exec rspec` now, we'll see a familiar error message:
+
+~~~bash
+NameError:
+  uninitialized constant Tictactoe::Player
+# ./spec/player_spec.rb:1:in `<top (required)>'
+~~~
+
+To resolve this first error, we need to actually create a Player class. Let's go ahead and write out a Player class with `name` and `marker` instance variables. Keep in mind that when we start writing code in TDD, we want to write the absolute least amount of code to get it to pass one test at a time. Here, we're going to start by getting the code to pass the tests we wrote for the `#initialize` method.
+
+~~~ruby
+# lib/tictactoe/player.rb
+module Tictactoe
+  class Player
+
+    def initialize(name, marker)
+      @name = name
+      @marker = marker
+    end
+  end
+end
+~~~
+
+If we run `bundle exec rspec` now, we see the following output:
+
+~~~bash
+Tictactoe::Player
+  #initialize
+    raises an error when given zero parameters
+    raises an error when given one parameter
+    doesn't raise an error when given two parameters
+  #name
+    returns the name (FAILED - 1)
+    raises an error when trying to change the name (FAILED - 2)
+  #marker
+    returns the marker (FAILED - 3)
+    raises an error when trying to change the marker (FAILED - 4)
+~~~
+
+Great - all of our tests for the `#initialize` method are passing! Next, we need to get the `#name` method tests to pass. This should be pretty straight-forward; we just need to add an `attr_reader` to our class since we want read access but not write access to this attribute.
+
+~~~ruby
+# lib/tictactoe/player.rb
+class Player
+    attr_reader :name
+~~~
+
+Let's run `bundle exec rspec` to see how we're doing now.
+
+~~~bash
+Tictactoe::Player
+  #initialize
+    raises an error when given zero parameters
+    raises an error when given one parameter
+    doesn't raise an error when given two parameters
+  #name
+    returns the name
+    raises an error when trying to change the name
+  #marker
+    returns the marker (FAILED - 1)
+    raises an error when trying to change the marker (FAILED - 2)
+~~~
+
+Both of the `#name` tests are passing, so now we can apply the technique to get the code to pass the `#marker` tests.
+
+~~~ruby
+# lib/tictactoe/player.rb
+class Player
+    attr_reader :name, :marker
+~~~
+
+Let's run our tests once more to make sure everything is working properly.
+
+~~~bash
+Tictactoe::Player
+  #initialize
+    raises an error when given zero parameters
+    raises an error when given one parameter
+    doesn't raise an error when given two parameters
+  #name
+    returns the name
+    raises an error when trying to change the name
+  #marker
+    returns the marker
+    raises an error when trying to change the marker
+
+Tictactoe::Square
+  #initialize
+    initializes with a default value of ' '
+  #value
+    can be changed to 'X'
+    can be changed to 'O'
+
+Tictactoe
+  has a version number
+
+Finished in 0.00753 seconds (files took 0.15355 seconds to load)
+11 examples, 0 failures
+~~~
+
+Revel in all that green! 
+
+We've finished making the first two classes that our game requires along with their associated tests. The next step is to make the far more complicated Board class, which is where we'll start in Part 2 of this tutorial. See you there!
