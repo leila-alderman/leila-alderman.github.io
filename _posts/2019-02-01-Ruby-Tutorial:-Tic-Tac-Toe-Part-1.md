@@ -8,7 +8,7 @@ This tutorial walks through how to write a game of [tic-tac-toe](https://en.wiki
 
 [This project](https://www.theodinproject.com/courses/ruby-programming/lessons/oop) is part of [The Odin Project](https://www.theodinproject.com) curriculum, and this post follows much of the methodology in an older [tic-tac-toe game tutorial](https://codequizzes.wordpress.com/2013/10/25/creating-a-tic-tac-toe-game-with-ruby/).
 
-The GitHub repository for this tutorial can be found [here](https://github.com/leila-alderman/tic-tac-toe).
+The GitHub repository for this tutorial can be found [here](https://github.com/leila-alderman/tictactoe).
 
 ## Objective
 
@@ -181,7 +181,7 @@ NameError:
 
 Great, we've finished the first part of TDD! Now, we need to write some code to make these tests pass.
 
-### Writing the Square Class
+### Creating the Square Class
 
 Create a new file in `lib/tictactoe/` called `square.rb` and write out the basic functionality for this class that will make it pass the tests we just wrote. Keep in mind that all of our classes will be wrapped inside the Tictactoe module to follow the conventions of Ruby gems. This approach helps to prevent namespace collisions when multiple gems are included in a project. 
 
@@ -292,7 +292,7 @@ end
 
 That covers all of the functionality that we want for our Player class, so it's now time to write the class itself.
 
-### Writing the Player Class
+### Creating the Player Class
 
 We need to start by creating a new file for our new class. In the `lib/tictactoe` folder, we'll create the file `player.rb`. This time, before we get into writing our new class, we'll go ahead and add the `require` statement for our new file.
 
