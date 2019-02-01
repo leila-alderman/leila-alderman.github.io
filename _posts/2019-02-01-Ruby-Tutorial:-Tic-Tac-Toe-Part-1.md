@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ruby TDD Tutorial: Tic-Tac-Toe Part 1
+title: Ruby TDD Tutorial | Tic-Tac-Toe Part 1
 ---
 
 # Ruby TDD Tutorial: Tic-Tac-Toe Part 1
