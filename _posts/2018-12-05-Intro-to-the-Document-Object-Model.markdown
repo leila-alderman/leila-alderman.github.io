@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Introduction to the Document Object Model
+tags:
+ - javascript
+ - DOM
 ---
 
 One of the powers of JavaScript is its ability to create websites that can dynamically interact with users. As part of this interaction, JavaScript can change aspects of a webpage in response to user-generated events. To change an HTML element, JavaScript needs access to it, which is what the **Document Object Model (DOM)** was designed to provide. 

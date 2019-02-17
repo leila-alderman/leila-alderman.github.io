@@ -1,6 +1,9 @@
 ---
 layout: post
 title: How to Get Started with Code for America
+tags:
+ - civic hacking
+ - Code for America
 ---
 
 Getting started with [Code for America](https://www.codeforamerica.org/) (CfA) can be intimidating - so many projects and new people asking for a wide variety of skills and knowledge. How can someone with technical coding skills find a useful application to help their local community? Is there a place for people without coding skills? What exactly does CfA do?
