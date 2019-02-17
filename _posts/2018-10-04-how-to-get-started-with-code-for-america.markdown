@@ -3,8 +3,6 @@ layout: post
 title: How to Get Started with Code for America
 ---
 
-# How to Get Started with Code for America
-
 Getting started with [Code for America](https://www.codeforamerica.org/) (CfA) can be intimidating - so many projects and new people asking for a wide variety of skills and knowledge. How can someone with technical coding skills find a useful application to help their local community? Is there a place for people without coding skills? What exactly does CfA do?
 
 At the 2018 [Civic Camp](http://ncopenpass.com/civic-camp/) conference hosted by NC Open Pass in Raleigh, North Carolina, an [unconference session](http://ncopenpass.com/blog/unconference-grid-2018/) was convened to answer these questions and more. The group included brigade leaders from four different CfA brigades across North Carolina ([Durham](http://codefordurham.com/), [Cary](http://www.codeforcary.org/), [Raleigh](http://opennc-collaborative.org/brigades/raleigh/), and [Charlotte](http://codeforcharlotte.org/)) and people who had never previously attended a CfA event. 

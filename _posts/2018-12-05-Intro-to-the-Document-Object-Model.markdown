@@ -3,8 +3,6 @@ layout: post
 title: Introduction to the Document Object Model
 ---
 
-# Introduction to the Document Object Model
-
 One of the powers of JavaScript is its ability to create websites that can dynamically interact with users. As part of this interaction, JavaScript can change aspects of a webpage in response to user-generated events. To change an HTML element, JavaScript needs access to it, which is what the **Document Object Model (DOM)** was designed to provide. 
 
 When loading a web page, a browser creates a DOM of the page, which is an **application programming interface (API)** that represents an HTML, XHTML, or XML document as a tree structure. We’ll go into APIs in more depth later on, but an API is a set of clearly defined methods used to communicate among different components. 
