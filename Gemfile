@@ -8,10 +8,10 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll"
+# gem "jekyll"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
-gem "github-pages", group: :jekyll_plugins
+# gem "github-pages", group: :jekyll_plugins
 
 # Add the Hydeout theme
 gem "jekyll-theme-hydeout", "~> 3.4"
