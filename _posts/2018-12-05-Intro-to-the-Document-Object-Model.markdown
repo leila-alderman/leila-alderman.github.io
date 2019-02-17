@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Introduction to the Document Object Model
+categories:
+ - JavaScript
 tags:
  - javascript
  - DOM
