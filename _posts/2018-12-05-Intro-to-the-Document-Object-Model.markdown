@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Introduction to the Document Object Model
 ---
 

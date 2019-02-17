@@ -1,4 +1,5 @@
 ---
+layout: post
 title: How to Get Started with Code for America
 ---
 

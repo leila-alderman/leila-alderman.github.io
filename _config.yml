@@ -16,7 +16,7 @@
 title: Leila Alderman
 email: leila.alderman@gmail.com
 description: 
-  Web development and civic hacking
+  Learning Web Development with The Odin Project
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://leila-alderman.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
@@ -26,7 +26,7 @@ github_username:  leila-alderman
 markdown: kramdown
 # theme: jekyll-theme-slate
 remote_theme: fongandrew/hydeout
-paginate: 8
+paginate: 5
 plugins:
   - jekyll-feed
 

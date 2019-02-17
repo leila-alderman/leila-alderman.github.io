@@ -1,3 +1,3 @@
-# NC Clear Path Github Pages
+# Leila Alderman's Blog
 
-Hosting for the github pages site for NC Clear Path
+My blog is hosted on GitHub Pages and uses the Hydeout theme from Jekyll.
