@@ -10,6 +10,8 @@ tags:
 
 [Hashes](https://ruby-doc.org/core-2.6/Hash.html) and [arrays](https://ruby-doc.org/core-2.6/Array.html) both keep track of collections of information, and they can use many of the same methods. So what are the differences between these two? Let's explore how arrays and hashes differ through a lunch time parable!
 
+*Note:* I originally wrote this post as part of the new Ruby lessons for [The Odin Project](https://www.theodinproject.com), and I'm simply reprinting it here.
+
 ## Lunch Time!
 
 You're sitting in your cubicle, diligently working away (because you would never dream of slacking off at work, right?), when lunch time rolls around. You need to grab a bite to eat, but how are you going to go about requesting food? For the purposes of this parable, you have two options: a vending machine or a nice restaurant. 
