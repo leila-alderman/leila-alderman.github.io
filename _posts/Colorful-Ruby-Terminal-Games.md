@@ -1,8 +1,7 @@
 ---
+layout: post
 title: How to Make Colorful Ruby Terminal Games
 ---
-
-# How to Make Colorful Ruby Terminal Games
 
 This guide walks you through how to upgrade the games you make in the terminal to add colors and other effects.
 

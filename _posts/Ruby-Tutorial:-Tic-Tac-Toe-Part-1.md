@@ -1,8 +1,7 @@
 ---
+layout: post
 title: Ruby TDD Tutorial | Tic-Tac-Toe Part 1
 ---
-
-# Ruby TDD Tutorial | Tic-Tac-Toe Part 1
 
 This tutorial walks through how to write a game of [tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) that can be played in the terminal using the principles of [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD), specifically using [RSpec](https://semaphoreci.com/community/tutorials/getting-started-with-rspec). 
 
