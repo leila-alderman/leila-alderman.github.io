@@ -6,7 +6,7 @@ title: Ruby TDD Tutorial | Tic-Tac-Toe Part 1
 
 This tutorial walks through how to write a game of [tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) that can be played in the terminal using the principles of [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development) (TDD), specifically using [RSpec](https://semaphoreci.com/community/tutorials/getting-started-with-rspec). 
 
-[This project](https://www.theodinproject.com/courses/ruby-programming/lessons/oop) is part of [The Odin Project](https://www.theodinproject.com) curriculum, and this post follows much of the methodology in an older [tic-tac-toe game tutorial](https://codequizzes.wordpress.com/2013/10/25/creating-a-tic-tac-toe-game-with-ruby/).
+This post follows much of the methodology in an out-dated [tic-tac-toe tutorial](https://codequizzes.wordpress.com/2013/10/25/creating-a-tic-tac-toe-game-with-ruby/), and [this project](https://www.theodinproject.com/courses/ruby-programming/lessons/oop) is part of [The Odin Project](https://www.theodinproject.com) curriculum.
 
 The GitHub repository for this tutorial can be found [here](https://github.com/leila-alderman/tictactoe).
 
@@ -49,12 +49,28 @@ Now that we have the gem structure set up, we need to make sure that everything 
 If you get the following error,
 
 ~~~bash
+Gem::InvalidSpecificationException: The gemspec at /home/leila/Documents/Odin_Project/connect_four/connect_four.gemspec is not valid. Please fix this gemspec.
+The validation error was '"FIXME" or "TODO" is not a description'
+~~~
+
+then you need to go into the `tictactoe.gemspec` file and add descriptions to replace the `TODO` text in the following lines (lines 12-14):
+
+~~~ruby
+# tictactoe.gemspec
+spec.summary       = %q{A terminal tic-tac-toe game}
+spec.description   = %q{This gem creates a terminal tic-tac-toe game using TDD.}
+spec.license       = "MIT"
+~~~
+
+After you do that, if you get the following error,
+
+~~~bash
 You have one or more invalid gemspecs that need to be fixed.
 The gemspec at /home/leila/Documents/Odin_Project/tictactoe/tictactoe.gemspec is not valid. Please fix this gemspec.
 The validation error was 'metadata['homepage_uri'] has invalid link: "TODO: Put your gem's website or public repo URL here."'
 ~~~
 
-then you need to go into the `tictactoe.gemspec` file and comment out lines 18-28 (everything within the `if spec.respond_to?(:metadata)` statement). In Ruby, you can comment out multiple lines using the following:
+then you need to comment out lines 18-28 in the `tictactoe.gemspec` file (everything within the `if spec.respond_to?(:metadata)` statement). In Ruby, you can comment out multiple lines using the following:
 
 ~~~ruby
 =begin
@@ -234,7 +250,9 @@ The next simplest class that we need to build is one for the players. The Player
 
 To start writing the tests for the Player class, we need to create a new file in `spec/` called `player_spec.rb`. What functionality do we want to expect from this class?
 
-First, we want a new player object to require both a `name` and a `marker` when initialized. We can write three tests for this requirement: one that checks that an error is raised when a new player is given zero parameters, one that checks that an error is raised when a new player is given one parameter, and one that checks that no error is raised when a player is initialized with two parameters. 
+First, we want a new player object to require both a `name` and a `marker` when initialized. Although we could simply pass these parameters to a new instance of Player, that would create undesirable argument-order dependencies for any classes that need to create a new Player. To avoid relying on the arguments being passed in a specific, fixed order, we can instead use a hash of arguments to initialize the Player class. Using a hash will make our code more robust and flexible.
+
+We can write two tests for this requirement: one that checks that an error is raised when a new player is given zero parameters and one that checks that no error is raised when a player is initialized with a valid input hash. 
 
 ~~~ruby
 # spec/player_spec.rb
@@ -245,12 +263,8 @@ RSpec.describe Tictactoe::Player do
       expect { Tictactoe::Player.new }.to raise_error(ArgumentError)
     end
 
-    it "raises an error when given one parameter" do
-      expect { Tictactoe::Player.new("Alice") }.to raise_error(ArgumentError)
-    end
-
-    it "doesn't raise an error when given two parameters" do
-      expect { Tictactoe::Player.new("Alice", "X") }.to_not raise_error
+    it "doesn't raise an error when given a valid hash" do
+      expect { Tictactoe::Player.new({name: "Alice", marker: "X"}) }.to_not raise_error
     end
   end
   
@@ -264,7 +278,7 @@ Second, we want to be able to access the `name` and `marker` attributes of a pla
 ~~~ruby
 # spec/player_spec.rb
 before do
-  @player = Tictactoe::Player.new("Alice", "X") 
+  @player = Tictactoe::Player.new({name: "Alice", marker: "X"}) 
 end
 
 context "#name" do
@@ -273,7 +287,7 @@ context "#name" do
   end
 
   it "raises an error when trying to change the name" do
-    expect { @player = Tictactoe::Player.new("Alice", "X"); 
+    expect { @player = Tictactoe::Player.new({name: "Alice", marker: "X"}); 
     @player.name = "Bob" }.to raise_error(NoMethodError)
   end
 end
@@ -284,7 +298,7 @@ context "#marker" do
   end
 
   it "raises an error when trying to change the marker" do
-    expect { @player = Tictactoe::Player.new("Alice", "X"); 
+    expect { @player = Tictactoe::Player.new({name: "Alice", marker: "X"}); 
     @player.marker = "G" }.to raise_error(NoMethodError)    
   end
 end
@@ -309,16 +323,16 @@ NameError:
 # ./spec/player_spec.rb:1:in `<top (required)>'
 ~~~
 
-To resolve this first error, we need to actually create a Player class. Let's go ahead and write out a Player class with `name` and `marker` instance variables. Keep in mind that when we start writing code in TDD, we want to write the absolute least amount of code to get it to pass one test at a time. Here, we're going to start by getting the code to pass the tests we wrote for the `#initialize` method.
+To resolve this first error, we need to actually create a Player class. Let's go ahead and write out a Player class with `name` and `marker` instance variables that are created from the input hash. Keep in mind that when we start writing code in TDD, we want to write the absolute least amount of code to get it to pass one test at a time. Here, we're going to start by getting the code to pass the tests we wrote for the `#initialize` method.
 
 ~~~ruby
 # lib/tictactoe/player.rb
 module Tictactoe
   class Player
 
-    def initialize(name, marker)
-      @name = name
-      @marker = marker
+    def initialize(input)
+      @name = input[:name]
+      @marker = input[:marker]
     end
   end
 end

@@ -24,7 +24,9 @@ github_username:  leila-alderman
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-slate
+# theme: jekyll-theme-slate
+remote_theme: fongandrew/hydeout
+paginate: 8
 plugins:
   - jekyll-feed
 
