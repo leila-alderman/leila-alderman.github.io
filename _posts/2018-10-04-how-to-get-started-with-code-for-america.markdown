@@ -1,6 +1,8 @@
 ---
 layout: post
 title: How to Get Started with Code for America
+categories:
+ - Civic hacking
 tags:
  - civic hacking
  - Code for America
