@@ -10,9 +10,10 @@ tags:
 ---
 
 Tonight's Guest Speaker at Code for Durham:
-Charles Menefee, Intern
+
+[Charles Menefee, Intern](Charles.Menefee@durhamnc.gov)
+
 Transportation Department, City of Durham
-[Charles.Menefee@durhamnc.gov](Charles.Menefee@durhamnc.gov)
 
 This evening at [Code for Durham](http://codefordurham.com/), we learned about [Vision Zero](https://visionzeronetwork.org/about/what-is-vision-zero/), which is an initiative started in Sweden in 1997 that aims to completely eliminate fatalities from traffic accidents. According to [Vision Zero Durham’s website](https://durhamnc.gov/2995/Vision-Zero), “Vision Zero is an approach that recognizes no traffic fatalities or serious injuries are acceptable. It is based on the fact that we are human and make mistakes, and while the road system needs to keep us moving, it must also be designed to protect us when we err.”
 
@@ -40,6 +41,7 @@ The Vision Zero framework consists of the “5 E Strategy” to help governments
 In addition to these foundational principles of the Vision Zero strategy, Durham has decided to add a sixth aspect:
 
  * equality.
+
 According to their website, “Vision Zero Durham will emphasize educational outreach in order to educate the community’s most vulnerable roadway users: low-income people, people of color, children and the elderly.”
 
 To help the government and community focus on equality in Vision Zero, Charles and his team created the idea of Transportation Disadvantaged Communities. These communities are defined as meeting 2 out of the 5 parameters below:
