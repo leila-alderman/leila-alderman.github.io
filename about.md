@@ -7,14 +7,17 @@ sidebar_link: true
 
 ## Welcome! 
 
-I'm Leila, and I'm studying full-stack web development with [The Odin Project](https://www.theodinproject.com/), which is a free, open-source web development curriculum. In addition to stuyding the curriculum, I'm also a community moderator, GitHub maintainer, and [top 10 contributor](https://github.com/TheOdinProject/curriculum/graphs/contributors) for The Odin Project. Most recently, I've been helping to write the new and improved Ruby lessons. 
+Shifting from software engineering into application security, I recently completed the SANS Women's Immersion Academy and obtained the GWAPT, GCIH, and GSEC certifications. As a self-taught developer with a passion for life-long learning and documentation, I'm passionate about combining my drive for technical excellence with my desire to do work that matters, making the world a more secure place for users and their data.
 
-I'm also getting involved in my local [civic hacking](https://codefordc.org/resources/what-is-civic-hacking.html) scene with [Code for Durham](http://codefordurham.com/) and [NC Open Pass](http://ncopenpass.com/). 
-
-As the project manager for [NC Clear Path](https://nc-clear-path.github.io/), I presented our project at [Civic Camp](http://ncopenpass.com/blog/civic-camp-hackathon-concludes-with-open-data-competition-kickoff/) and [Datapalooza](http://ncopenpass.com/blog/civic-tech-solutions-and-first-responder-technology-highlighted-at-nc-open-pass-datapalooza/), where we won first place both times! I also got the opportunity to present our project at [All Things Open](http://ncopenpass.com/blog/nc-open-pass-datapalooza-open-data-competition-coming-to-ipreo/), which was a great opportunity to connect with new people. 
-
-NC Clear Path is a team of open-data advocates across North Carolina dedicated to improving mapping and trip planning services for those with limited mobility. We work with open source projects and open map data to create solutions for safe pedestrian paths. 
+I'm a moderator, maintainer, and top 10 contributor to the free, open-source web development curriculum [The Odin Project](https://www.theodinproject.com/), which is how I taught myself to code. I'm also a top 10 contributor to Active Merchant, an open-source Ruby gem for payments processing that integrates with over 120 payment gateways.
+ 
+My top 5 strengths from StrengthsFinder:
+ - Intellection: I'm introspective and love thinking through new challenges.
+ - Input: I'm constantly collecting and collating new information that I can then document for others to benefit from.
+ - Learner: I'm always learning something new, whether it's teaching myself to code, learning cybersecurity, or becoming a certified Master Composter.
+ - Deliberative: I like to plan ahead and develop processes to streamline work.
+ - Belief: I want to do work that matters and that improves the people and world around me. 
 
 ## Want to get in touch?
 
-If you're interested in getting in touch, you can find me on [GitHub](https://github.com/leila-alderman) or [LinkedIn](https://www.linkedin.com/in/leila-alderman/).
+If you're interested in connecting with me, you can find me on [GitHub](https://github.com/leila-alderman) and [LinkedIn](https://www.linkedin.com/in/leila-alderman/).
